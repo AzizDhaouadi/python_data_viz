@@ -43,11 +43,11 @@ layout = html.Div(children=[
     html.Div(style={'margin-top':'1%'}, children=[
     html.Ul(children=[
         html.Li( style={'display': 'inline-block', 'margin-left': '100px'},children=[
-            html.A('Primary Reports', href='/apps/app1', style={'color': '#FFF'}, target='_blank', className='menu-nav')
+            html.A('Home', href='/apps/app1', style={'color': '#FFF'}, target='_blank', className='menu-nav')
         ]
         ),
         html.Li(style={'display': 'inline-block', 'margin-left': '40px'}, children=[
-            html.A('SEM Reports', href='/apps/app2', style={'color': '#FFF'}, target='_blank', className='menu-nav')
+            html.A('Google Ads Reports', href='/apps/app2', style={'color': '#FFF'}, target='_blank', className='menu-nav')
         ]),
         html.Hr(style={'display': 'block', 'height': '1px',
                 'border': '0', 'border-top': '1px solid #828282', 'padding': '0'}),
