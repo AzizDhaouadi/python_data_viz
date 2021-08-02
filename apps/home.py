@@ -6,12 +6,12 @@ from app import app
 
 layout = html.Div(style={'margin-top':'1%'}, children=[
     html.Ul(children=[
-        html.Li( style={'display': 'inline-block', 'margin-left': '100px'},children=[
-            html.A('Primary Reports', href='apps/app1', style={'color': '#FFF'}, target='_blank', className='menu-nav')
+        html.Li( style={'display': 'inline-block'},children=[
+            html.A('Google Analytics Reports', href='apps/app1', style={'color': '#FFF'}, target='_blank', className='menu-nav')
         ]
         ),
         html.Li(style={'display': 'inline-block', 'margin-left': '40px'}, children=[
-            html.A('SEM Reports', href='apps/app2', style={'color': '#FFF'}, target='_blank', className='menu-nav')
+            html.A('Google Ads Reports', href='apps/app2', style={'color': '#FFF'}, target='_blank', className='menu-nav')
         ])
     ], style={'list-style-type': 'none'}),
 
@@ -24,7 +24,7 @@ layout = html.Div(style={'margin-top':'1%'}, children=[
     children=[
         html.Div(className='four columns div-for-charts bg-grey',
             children=[
-                html.P('Welcome to the TrafficJunky Marketing Dashboard !', style = {
+                html.P('Welcome to the Dash & Plotly visualization project!', style = {
                     'margin-top': '-4em'
                 })
                  
