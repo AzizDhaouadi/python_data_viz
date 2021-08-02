@@ -38,6 +38,7 @@ layout = html.Div(children=[
         ]),
     ], style={'list-style-type': 'none'}),
 
+
     ]),
 
     html.Div(className='row',
