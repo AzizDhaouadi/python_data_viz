@@ -49,20 +49,20 @@ layout = html.Div(children=[
         html.Li(style={'display': 'inline-block', 'margin-left': '40px'}, children=[
             html.A('Google Ads Reports', href='/apps/app2', style={'color': '#FFF'}, target='_blank', className='menu-nav')
         ]),
-        html.Hr(style={'display': 'block', 'height': '1px',
-                'border': '0', 'border-top': '1px solid #828282', 'padding': '0'}),
+        # html.Hr(style={'display': 'block', 'height': '1px',
+        #         'border': '0', 'border-top': '1px solid #828282', 'padding': '0'}),
     ], style={'list-style-type': 'none'}),
 
-    html.Hr(style={'display': 'block', 'height': '1px',
-        'border': '0', 'border-top': '1px solid #828282',
-        'margin': '6em 0', 'padding': '0'}),
+    # html.Hr(style={'display': 'block', 'height': '1px',
+    #     'border': '0', 'border-top': '1px solid #828282',
+    #     'margin': '6em 0', 'padding': '0'}),
     ]),
     
     html.Div(className='row',
              children=[
                 html.Div(className='four columns div-user-controls',
                           children=[
-                              html.H1('TOUR PAGES', style={'margin-top': '-6em'}),
+                              html.H1('TOUR PAGES'),
 
                               #Drowdown Menu for the pageviews
                               html.H2('Pageviews', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2em'}),  
