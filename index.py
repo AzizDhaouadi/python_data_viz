@@ -4,7 +4,7 @@ from dash.dependencies import Input, Output
 import dash
 import dash_auth
 from app import app
-from apps import app1, app2, home
+from dashboards import google_analytics, google_ads, home
 
 # Keep this out of source code repository - save in a file or a database
 VALID_USERNAME_PASSWORD_PAIRS = {
@@ -23,10 +23,10 @@ app.layout = html.Div([
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/apps/app1':
-        return app1.layout
-    elif pathname == '/apps/app2':
-        return app2.layout
+    if pathname == '/dashboard/google_analytics':
+        return google_analytics.layout
+    elif pathname == '/dashboard/google_ads':
+        return google_ads.layout
     elif pathname == '/':
         return home.layout    
     else:
