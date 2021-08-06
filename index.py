@@ -6,14 +6,6 @@ import dash_auth
 from app import app
 from dashboards import google_analytics, google_ads, home
 
-# Keep this out of source code repository - save in a file or a database
-VALID_USERNAME_PASSWORD_PAIRS = {
-    'hello': 'world'
-}
-auth = dash_auth.BasicAuth(
-    app,
-    VALID_USERNAME_PASSWORD_PAIRS
-)
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
