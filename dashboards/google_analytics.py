@@ -67,7 +67,7 @@ layout = html.Div(children=[
                                                         options=get_options(df['Page'].unique()),
                                                           multi=True,
                                                         value=[df['Page'].sort_values()[0]],
-                                                        style={'backgroundColor': '#1E1E1E'},
+                                                        style={'backgroundColor': 'inherit'},
                                                         className='stockselector')
                                        ],
                                        style={'color': '#1E1E1E'}),
@@ -80,7 +80,7 @@ layout = html.Div(children=[
                                                           options=get_options(df_two['Bounce'].unique()),
                                                           multi=True,
                                                           value=[df_two['Bounce'].sort_values()[0]],
-                                                          style={'backgroundColor': '#1E1E1E'} ,
+                                                          style={'backgroundColor': '#inherit'} ,
                                                           className='bounceselector')       
                                          ],
                                          style={'color': '#000'}),
@@ -94,7 +94,7 @@ layout = html.Div(children=[
                                                           options=get_options(df_three['Exit'].unique()),
                                                           multi=True,
                                                           value=[df_three['Exit'].sort_values()[0]],
-                                                          style={'backgroundColor': '#1E1E1E'} ,
+                                                          style={'backgroundColor': 'inherit'} ,
                                                           className='exitselector')       
                                          ],
                                          style={'color': '#1E1E1E'})
@@ -134,7 +134,7 @@ layout = html.Div(children=[
                                                           options=get_options(df_four['Event'].unique()),
                                                           multi=True,
                                                           value=[df_four['Event'].sort_values()[0]],
-                                                          style={'backgroundColor': '#1E1E1E'} ,
+                                                          style={'backgroundColor': 'inherit'} ,
                                                           className='evenselector')       
                                          ],
                                          style={'color': '#1E1E1E'})
@@ -208,7 +208,7 @@ def update_pageviews(selected_dropdown_value):
         trace.append(go.Scatter(x=df_sub[df_sub['Page'] == stock].index,
                                 y=df_sub[df_sub['Page'] == stock]['value'],
                                 mode='lines',
-                                opacity=0.7,
+                                opacity=1,
                                 name=stock,
                                 textposition='bottom center'))
     # STEP 3
@@ -225,12 +225,13 @@ def update_pageviews(selected_dropdown_value):
                   margin={'b': 15},
                   hovermode='x',
                   autosize=True,
+                  
                 #   title={'text': 'Pageviews', 'font': {'color': 'white'}, 'x': 0.5},
-                  xaxis={'range': [df_sub.index.min(), df_sub.index.max()]},
+                  xaxis={'range': [df_sub.index.min(), df_sub.index.max()], 'showgrid':False},
+                  yaxis = {'showgrid':False}
               ),
 
               }
-
     return figure
 
 
@@ -249,7 +250,7 @@ def update_bouncerate(selected_dropdown_value):
         trace.append(go.Scatter(x=df_sub_two[df_sub_two['Bounce'] == stock].index,
                                 y=df_sub_two[df_sub_two['Bounce'] == stock]['value'],
                                 mode='lines',
-                                opacity=0.7,
+                                opacity=1,
                                 name=stock,
                                 textposition='bottom center'))
     # STEP 3
@@ -267,7 +268,8 @@ def update_bouncerate(selected_dropdown_value):
                   hovermode='x',
                   autosize=True,
                 #   title={'text': 'Bounce Rate', 'font': {'color': 'white'}, 'x': 0.5},
-                  xaxis={'range': [df_sub_two.index.min(), df_sub_two.index.max()]},
+                  xaxis={'range': [df_sub_two.index.min(), df_sub_two.index.max()], 'showgrid': False},
+                  yaxis = {'showgrid':False}
               ),
 
               }
@@ -289,7 +291,7 @@ def update_exitrate(selected_dropdown_value):
         trace.append(go.Scatter(x=df_sub_three[df_sub_three['Exit'] == stock].index,
                                 y=df_sub_three[df_sub_three['Exit'] == stock]['value'],
                                 mode='lines',
-                                opacity=0.7,
+                                opacity=1,
                                 name=stock,
                                 textposition='bottom center'))
     # STEP 3
@@ -307,7 +309,8 @@ def update_exitrate(selected_dropdown_value):
                   hovermode='x',
                   autosize=True,
                 #   title={'text': 'Exit Rate', 'font': {'color': 'white'}, 'x': 0.5},
-                  xaxis={'range': [df_sub_three.index.min(), df_sub_three.index.max()]},
+                  xaxis={'range': [df_sub_three.index.min(), df_sub_three.index.max()], 'showgrid':False},
+                  yaxis = {'showgrid':False}
               ),
 
               }
@@ -329,7 +332,7 @@ def update_eventstracking(selected_dropdown_value):
         trace.append(go.Scatter(x=df_sub_four[df_sub_four['Event'] == stock].index,
                                 y=df_sub_four[df_sub_four['Event'] == stock]['value'],
                                 mode='lines',
-                                opacity=0.7,
+                                opacity=1,
                                 name=stock,
                                 textposition='bottom center'))
     # STEP 3
@@ -347,7 +350,8 @@ def update_eventstracking(selected_dropdown_value):
                   hovermode='x',
                   autosize=True,
                 #   title={'text': 'Event Tracking', 'font': {'color': 'white'}, 'x': 0.5},
-                  xaxis={'range': [df_sub_four.index.min(), df_sub_four.index.max()]},
+                  xaxis={'range': [df_sub_four.index.min(), df_sub_four.index.max()], 'showgrid':False},
+                  yaxis = {'showgrid':False}
               ),
 
               }
