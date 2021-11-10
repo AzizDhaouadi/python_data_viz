@@ -218,7 +218,7 @@ def update_pageviews(selected_dropdown_value):
     # STEP 4
     figure = {'data': data,
               'layout': go.Layout(
-                  colorway=["#359EC3", '#D59353', '#B15AE6', '#6BBF5D', '#D45950'],
+                  colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                   template='plotly_dark',
                   paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
@@ -260,7 +260,7 @@ def update_bouncerate(selected_dropdown_value):
     # STEP 4
     figure = {'data': data,
               'layout': go.Layout(
-                  colorway=["#359EC3", '#D59353', '#B15AE6', '#6BBF5D', '#D45950'],
+                  colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                   template='plotly_dark',
                   paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
@@ -301,7 +301,7 @@ def update_exitrate(selected_dropdown_value):
     # STEP 4
     figure = {'data': data,
               'layout': go.Layout(
-                  colorway=["#359EC3", '#D59353', '#B15AE6', '#6BBF5D', '#D45950'],
+                  colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                   template='plotly_dark',
                   paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
@@ -342,7 +342,7 @@ def update_eventstracking(selected_dropdown_value):
     # STEP 4
     figure = {'data': data,
               'layout': go.Layout(
-                  colorway=["#359EC3", '#D59353', '#B15AE6', '#6BBF5D', '#D45950'],
+                  colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                   template='plotly_dark',
                   paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
