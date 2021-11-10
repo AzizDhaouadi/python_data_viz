@@ -56,7 +56,7 @@ layout = html.Div(children=[
              children=[
                 html.Div(className='four columns div-user-controls',
                           children=[
-                              html.H1('TOUR PAGES'),
+                              html.H1('Key Performance Indicators'),
 
                               #Drowdown Menu for the pageviews
                               html.H2('Pageviews', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2em'}),  
@@ -71,7 +71,6 @@ layout = html.Div(children=[
                                                         className='stockselector')
                                        ],
                                        style={'color': '#1E1E1E'}),
-                                html.P('Graph last updated on 01/04/2021', style={'fontSize': 'smaller', 'color': '#DBDBDB'}),
 
                                 #Dropdown for the Bounce rate
                                 html.H2('Bounce Rate', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '17em'}),
@@ -85,7 +84,6 @@ layout = html.Div(children=[
                                                           className='bounceselector')       
                                          ],
                                          style={'color': '#000'}),
-                                html.P('Graph last updated on 01/04/2021', style={'fontSize': 'smaller', 'color': '#DBDBDB'}),
 
                                 #Dropdown for the Exit rate
                                 html.H2('Exit Rate', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '17em'}),
@@ -99,8 +97,8 @@ layout = html.Div(children=[
                                                           style={'backgroundColor': '#1E1E1E'} ,
                                                           className='exitselector')       
                                          ],
-                                         style={'color': '#1E1E1E'}),
-                                html.P('Graph last updated on 01/04/2021', style={'fontSize': 'smaller', 'color': '#DBDBDB'}),
+                                         style={'color': '#1E1E1E'})
+                                
 
                           ]
                           ),
@@ -139,8 +137,8 @@ layout = html.Div(children=[
                                                           style={'backgroundColor': '#1E1E1E'} ,
                                                           className='evenselector')       
                                          ],
-                                         style={'color': '#1E1E1E'}),
-                                html.P('Graph last updated on 01/04/2021', style={'fontSize': 'smaller', 'color': '#DBDBDB'}),
+                                         style={'color': '#1E1E1E'})
+                                
                           ]
                           ),
                           
