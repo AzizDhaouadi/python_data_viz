@@ -509,7 +509,7 @@ html, body{
 }
 
 body {
-  background-color: #1E1E1E;
+  background-color:#0B0705;
   color: #d8d8d8;
   height: 100%;
   margin: 0;
@@ -728,3 +728,6 @@ a {
   background: #d8d8d870 !important;
 }
 
+#fityvh{
+  height: 50vh !important;
+}
