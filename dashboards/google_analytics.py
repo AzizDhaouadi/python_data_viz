@@ -116,7 +116,7 @@ layout = html.Div(children=[
              ]),
 
             html.Hr(style={'display': 'block', 'height': '1px',
-                'border': '0', 'border-top': '1px solid #828282',
+                'border': '0', 'border-top': '1px solid inherit',
                 'margin-top': '12em', 'padding': '0'}),
             
             html.Div(className='row',
@@ -151,7 +151,7 @@ layout = html.Div(children=[
              ]),
 
             html.Hr(style={'display': 'block', 'height': '1px',
-                'border': '0', 'border-top': '1px solid #828282', 'padding': '0'}),
+                'border': '0', 'border-top': '1px solid inherit', 'padding': '0'}),
 
              html.Div(className='row',
              children=[
@@ -161,29 +161,33 @@ layout = html.Div(children=[
                                 #Dropdown for the Events
                                 html.P('''From the dropdown menu, select which pages or events you are interested in. You can select multiple page events
                                 per graph for comparison.'''),
-                          ]
-                          ),
-                          
-                html.Div(className=' eight columns div-user-controls bg-grey', style={'margin-top': '-5em'},
-                          children=[
-                              html.H3('Graph Features'),
-
-                              html.H6('Zooming on Graphs', style={'fontSize': 'smaller'}),
-                              html.P('''You can zoom on graphs both horizontally and vertically. To default back to the intial state, double tap on the graph''',
-                              style={'fontSize': 'smaller'}),
-                              
-                              html.H6('Moving Axes', style={'fontSize': 'smaller'}),
-                              html.P('''To move along the x or y axis, drag the axis up or down''', style={'fontSize': 'smaller'}),
-
-                              html.H6('Graph Legend', style={'fontSize': 'smaller'}),
-                              html.P('''The graph legend shows which KPIs are being visualized. Click on the individual KPI to omit it from
-                              the graph without using the dropdown menu.''', style={'fontSize': 'smaller'}),
-                              
-                              html.Br(),
+                                html.Br(),
                               html.Br(),
                               html.Br(),
                               html.Br()
-                          ])
+                          ]
+                          ),
+                          
+                # html.Div(className=' eight columns div-user-controls bg-grey', style={'margin-top': '-5em'},
+                #           children=[
+                #               html.H3('Graph Features'),
+
+                #               html.H6('Zooming on Graphs', style={'fontSize': 'smaller'}),
+                #               html.P('''You can zoom on graphs both horizontally and vertically. To default back to the intial state, double tap on the graph''',
+                #               style={'fontSize': 'smaller'}),
+                              
+                #               html.H6('Moving Axes', style={'fontSize': 'smaller'}),
+                #               html.P('''To move along the x or y axis, drag the axis up or down''', style={'fontSize': 'smaller'}),
+
+                #               html.H6('Graph Legend', style={'fontSize': 'smaller'}),
+                #               html.P('''The graph legend shows which KPIs are being visualized. Click on the individual KPI to omit it from
+                #               the graph without using the dropdown menu.''', style={'fontSize': 'smaller'}),
+                              
+                #               html.Br(),
+                #               html.Br(),
+                #               html.Br(),
+                #               html.Br()
+                #           ])
              ]),
 
 
