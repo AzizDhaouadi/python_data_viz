@@ -60,7 +60,6 @@ layout = html.Div(children=[
 
                               #Drowdown Menu for the pageviews
                               html.H2('Pageviews', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2em'}),  
-                              html.P('What is being visualized are not unique pageviews. Unique pageviews are not supportted yet!'),
                               html.Div(className='div-for-dropdown',
                                        children=[
                                            dcc.Dropdown(id='stockselector',
@@ -87,14 +86,13 @@ layout = html.Div(children=[
 
                                 #Dropdown for the Exit rate
                                 html.H2('Exit Rate', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '17em'}),
-                                html.P('The exit rate referes to the number of customers leaving the site from said page after being active'),
                                 html.Div(className='div-for-dropdown',
                                          children=[
                                              dcc.Dropdown(id='exitselector',
                                                           options=get_options(df_three['Exit'].unique()),
                                                           multi=True,
                                                           value=[df_three['Exit'].sort_values()[0]],
-                                                          style={'backgroundColor': 'inherit'} ,
+                                                          style={'backgroundColor': 'inherit'},
                                                           className='exitselector')       
                                          ],
                                          style={'color': '#1E1E1E'})
@@ -123,11 +121,8 @@ layout = html.Div(children=[
              children=[
                 html.Div(className='four columns div-user-controls',
                           children=[
-                              html.H1('EVENTS', style={'margin-top': '-2em'}),
                                 #Dropdown for the Events
-                                html.H2('Events Tracking', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif'}),
-                                html.P('''Create campaign event refers to the action where the user creates the campaign and saves it without moving forward.
-                                Campaign confirmation refers to the action of user finishing the set up of their campaigns and clicking the confirming campaign button'''),
+                                html.H2('Events Tracking', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2.5em'}),
                                 html.Div(className='div-for-dropdown',
                                          children=[
                                              dcc.Dropdown(id='evenselector',
@@ -142,7 +137,7 @@ layout = html.Div(children=[
                           ]
                           ),
                           
-                html.Div(className=' eight columns div-user-controls bg-grey', style={'margin-top': '-5em'},
+                html.Div(className='eight columns div-for-charts bg-grey',id='fityvh',
                           children=[
                               
                               dcc.Graph(id='event_tracking', config={'displayModeBar': False}), # Event Tracking Graph
