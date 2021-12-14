@@ -47,25 +47,8 @@ layout = html.Div(children=[
                           children=[
                               #Introduction to the Marketing Dashboard
                             #   html.Img(src='/assets/tj_logo.svg', style={'height': '45px', 'paddingBottom': '40px'}),
-                              html.H1('Marketing Dashboard', style={'color': '#67c5d7', 'fontWeight': 'bolder', 'fontSize': '40px', 'fontFamily': 'Roboto'}),
-                              html.P('This section reports the performacen of the SEM Campaigns running on Google Search & Google Display Network'),
-
-                              html.H3('This is the list of the KPIs you will be able to visualize for our Google Ads'),
-                              html.Li('Conversion Rate Per Campaign', style={'color': '#D77967', 'fontSize': 'large'}),
-                              html.Li('Click-through Rate Per Campaign', style={'color': '#D77967', 'fontSize': 'large'}),
-                              html.Li('Ad Impressions Per Campaign', style={'color': '#D77967', 'fontSize': 'large'}),
-
-
-                                html.H2('Ads Conversion Rate Dropdown Menu', style={'color':'#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder'}),  
-                                html.P('This will allow you to visualize the conversion rate for our Google Ads. The ads are broken down per Geo location, and do not include the display ads'),  
-                                
-                                html.H2('Ads Click-Through Rate Dropdown Menu', style={'color':'#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder'}),
-                                html.P('This will allow you to visualize the click-through rate for our Google Ads. The ads are broken down per Geo location, and do not include the display ads'),
-
-                                html.H2('Ads Impression Dropdown Menu', style={'color':'#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder'}),
-                                html.P('This will allow you to visualize the ad impressions of our Goodgle Ads account. The impressions are broken down per campaigns per geo and do not include the display ads'),
-
-                                
+                              html.H1('Key Performance Indicators'),               
+  
                           ]
                           ),
                           
