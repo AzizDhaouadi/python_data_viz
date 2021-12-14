@@ -731,3 +731,16 @@ a {
 #fityvh{
   height: 50vh !important;
 }
+
+.Select--multi .Select-value {
+  border: 1px solid white !important;
+  color: white !important;
+}
+
+.Select--multi .Select-value-icon{
+  border-right: 1px solid white !important;
+}
+
+.Select-control, .Select-menu-outer, .Select-multi-value-wrapper, .select-up, .is-open .Select-control {
+  background-color: inherit;
+}
