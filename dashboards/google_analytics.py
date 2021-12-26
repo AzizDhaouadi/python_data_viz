@@ -95,8 +95,20 @@ layout = html.Div(children=[
                                                           style={'backgroundColor': 'inherit'},
                                                           className='exitselector')       
                                          ],
-                                         style={'color': '#1E1E1E'})
-                                
+                                         style={'color': '#1E1E1E'}),
+
+                                html.H2('Events Tracking', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '17em'}),
+                                html.Div(className='div-for-dropdown',
+                                         children=[
+                                             dcc.Dropdown(id='evenselector',
+                                                          options=get_options(df_four['Event'].unique()),
+                                                          multi=True,
+                                                          value=[df_four['Event'].sort_values()[0]],
+                                                          style={'backgroundColor': 'inherit'} ,
+                                                          className='evenselector')       
+                                         ],
+                                         style={'color': '#1E1E1E'}),
+                           
 
                           ]
                           ),
@@ -110,63 +122,24 @@ layout = html.Div(children=[
                               html.Br(),
 
                               dcc.Graph(id='exit_rate', config={'displayModeBar': False}), # Exit Rate Graph
-                              html.Br(), ])
-             ]),
+                              html.Br(), 
 
-            html.Hr(style={'display': 'block', 'height': '1px',
-                'border': '0', 'border-top': '1px solid inherit',
-                'margin-top': '12em', 'padding': '0'}),
-            
-            html.Div(className='row',
-             children=[
-                html.Div(className='four columns div-user-controls',
-                          children=[
-                                #Dropdown for the Events
-                                html.H2('Events Tracking', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2.5em'}),
-                                html.Div(className='div-for-dropdown',
-                                         children=[
-                                             dcc.Dropdown(id='evenselector',
-                                                          options=get_options(df_four['Event'].unique()),
-                                                          multi=True,
-                                                          value=[df_four['Event'].sort_values()[0]],
-                                                          style={'backgroundColor': 'inherit'} ,
-                                                          className='evenselector')       
-                                         ],
-                                         style={'color': '#1E1E1E'}),
-                                html.H2('Events Breakdown (Percentage From Total)', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '19em'}),
-                                html.P("This is a paragraph")
-
-                                
-                          ]
-                          ),
-                          
-                html.Div(className='eight columns div-for-charts bg-grey',id='fityvh',
-                          children=[
+                             dcc.Graph(id='event_tracking', config={'displayModeBar': False}),
+                             html.Br(),  # Event Tracking Graph 
                               
-                              dcc.Graph(id='event_tracking', config={'displayModeBar': False}), # Event Tracking Graph
-                              html.Br(),
-                              dcc.Graph(id='event_spend', config={'displayModeBar': False})
-        
-                          ])
+                              ])
              ]),
-
-            # html.Hr(style={'display': 'block', 'height': '1px',
-            #     'border': '0', 'border-top': '1px solid inherit', 'padding': '0'}),
-
-            #  html.Div(className='row',
+            
+            # html.Div(className='row',
             #  children=[
-            #     html.Div(className='four columns div-user-controls',
+                          
+            #     html.Div(className='eight columns div-for-charts bg-grey',id='fityvh',
             #               children=[
-            #                   html.H1('HOW TO USE THE REPORTS', style={'margin-top': '-2em'}),
-            #                     #Dropdown for the Events
-            #                     html.P('''From the dropdown menu, select which pages or events you are interested in. You can select multiple page events
-            #                     per graph for comparison.'''),
-            #                     html.Br(),
+                              
             #                   html.Br(),
-            #                   html.Br(),
-            #                   html.Br()
-            #               ]
-            #               ),
+            #                 #   dcc.Graph(id='event_spend', config={'displayModeBar': False})
+        
+            #               ])
             #  ]),
 
 
