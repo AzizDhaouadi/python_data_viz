@@ -123,7 +123,7 @@ def update_conversions(selected_dropdown_value):
     for stock in selected_dropdown_value:
         trace.append(go.Scatter(x=df_sub_sem_nine[df_sub_sem_nine['Conversion Rate'] == stock].index,
                                 y=df_sub_sem_nine[df_sub_sem_nine['Conversion Rate'] == stock]['value'],
-                                mode='markers',
+                                mode='lines',
                                 opacity=0.7,
                                 name=stock,
                                 textposition='bottom center'))
@@ -174,7 +174,7 @@ def update_ctr(selected_dropdown_value):
     # STEP 4
     figure = {'data': data,
               'layout': go.Layout(
-                  colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
+                  colorway=['#ffffff', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                   template='plotly_dark',
                   paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
@@ -203,7 +203,7 @@ def update_ctr(selected_dropdown_value):
     for stock in selected_dropdown_value:
         trace.append(go.Scatter(x=df_sub_sem_el[df_sub_sem_el['Impressions'] == stock].index,
                                 y=df_sub_sem_el[df_sub_sem_el['Impressions'] == stock]['value'],
-                                mode='markers',
+                                mode='lines',
                                 opacity=0.7,
                                 name=stock,
                                 textposition='bottom center'))
