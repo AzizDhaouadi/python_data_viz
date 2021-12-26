@@ -3,8 +3,10 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import dash
 import dash_auth
+import app
 from app import app
 from dashboards import google_analytics, google_ads, home
+
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -20,7 +22,7 @@ def display_page(pathname):
     elif pathname == '/dashboard/google_ads':
         return google_ads.layout
     elif pathname == '/':
-        return home.layout    
+        return app.home()
     else:
         return '404'
 

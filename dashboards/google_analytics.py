@@ -59,12 +59,12 @@ layout = html.Div(children=[
                               html.H1('Key Performance Indicators'),
 
                               #Drowdown Menu for the pageviews
-                              html.H2('Pageviews', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2em'}),  
+                              html.H2('Pageviews', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2em'}),  
                               html.Div(className='div-for-dropdown',
                                        children=[
                                            dcc.Dropdown(id='stockselector',
                                                         options=get_options(df['Page'].unique()),
-                                                          multi=True,
+                                                        multi=True,
                                                         value=[df['Page'].sort_values()[0]],
                                                         style={'backgroundColor': 'inherit'},
                                                         className='stockselector')
@@ -72,20 +72,20 @@ layout = html.Div(children=[
                                        style={'color': '#1E1E1E'}),
 
                                 #Dropdown for the Bounce rate
-                                html.H2('Bounce Rate', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '17em'}),
+                                html.H2('Bounce Rate', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '17em'}),
                                 html.Div(className='div-for-dropdown',
                                          children=[
                                              dcc.Dropdown(id='bounceselector',
                                                           options=get_options(df_two['Bounce'].unique()),
                                                           multi=True,
                                                           value=[df_two['Bounce'].sort_values()[0]],
-                                                          style={'backgroundColor': '#inherit'} ,
+                                                          style={'backgroundColor': 'inherit'} ,
                                                           className='bounceselector')       
                                          ],
                                          style={'color': '#000'}),
 
                                 #Dropdown for the Exit rate
-                                html.H2('Exit Rate', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '17em'}),
+                                html.H2('Exit Rate', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '17em'}),
                                 html.Div(className='div-for-dropdown',
                                          children=[
                                              dcc.Dropdown(id='exitselector',
@@ -122,7 +122,7 @@ layout = html.Div(children=[
                 html.Div(className='four columns div-user-controls',
                           children=[
                                 #Dropdown for the Events
-                                html.H2('Events Tracking', style={'color': '#299cb2', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2.5em'}),
+                                html.H2('Events Tracking', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2.5em'}),
                                 html.Div(className='div-for-dropdown',
                                          children=[
                                              dcc.Dropdown(id='evenselector',
@@ -132,7 +132,10 @@ layout = html.Div(children=[
                                                           style={'backgroundColor': 'inherit'} ,
                                                           className='evenselector')       
                                          ],
-                                         style={'color': '#1E1E1E'})
+                                         style={'color': '#1E1E1E'}),
+                                html.H2('Events Breakdown (Percentage From Total)', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '19em'}),
+                                html.P("This is a paragraph")
+
                                 
                           ]
                           ),
@@ -141,6 +144,8 @@ layout = html.Div(children=[
                           children=[
                               
                               dcc.Graph(id='event_tracking', config={'displayModeBar': False}), # Event Tracking Graph
+                              html.Br(),
+                              dcc.Graph(id='event_spend', config={'displayModeBar': False})
         
                           ])
              ]),
@@ -198,9 +203,7 @@ def update_pageviews(selected_dropdown_value):
                   plot_bgcolor='rgba(0, 0, 0, 0)',
                   margin={'b': 15},
                   hovermode='x',
-                  autosize=True,
-                  
-                #   title={'text': 'Pageviews', 'font': {'color': 'white'}, 'x': 0.5},
+                  autosize=True,                  
                   xaxis={'range': [df_sub.index.min(), df_sub.index.max()], 'showgrid':False},
                   yaxis = {'showgrid':False}
               ),
@@ -305,7 +308,7 @@ def update_eventstracking(selected_dropdown_value):
     for stock in selected_dropdown_value:
         trace.append(go.Scatter(x=df_sub_four[df_sub_four['Event'] == stock].index,
                                 y=df_sub_four[df_sub_four['Event'] == stock]['value'],
-                                mode='lines',
+                                mode='markers',
                                 opacity=1,
                                 name=stock,
                                 textposition='bottom center'))
@@ -323,7 +326,6 @@ def update_eventstracking(selected_dropdown_value):
                   margin={'b': 15},
                   hovermode='x',
                   autosize=True,
-                #   title={'text': 'Event Tracking', 'font': {'color': 'white'}, 'x': 0.5},
                   xaxis={'range': [df_sub_four.index.min(), df_sub_four.index.max()], 'showgrid':False},
                   yaxis = {'showgrid':False}
               ),
@@ -332,7 +334,39 @@ def update_eventstracking(selected_dropdown_value):
 
     return figure
 
+# Update Events Spend Breakdown
+@app.callback(Output('event_spend', 'figure'),
+                      [Input('evenselector', 'value')])
+                      
+def update_eventspend(selected_dropdown_value):
+    ''' Draw traces of the feature 'value' based one the currently selected stocks '''
+    # STEP 1
 
+    # STEP 2
+    # Draw and append traces for each stock
+    trace = go.Pie(labels = ['Event 1', 'Event 2', 'Event 3', 'Event 4', 'Event 5'], values=[23,17,35,29,12],
+    opacity=1,
+)
+                                
+    # STEP 3
+
+    data = [trace]
+    # Define Figure
+    # STEP 4
+    figure = {
+        'data': data,
+        'layout': go.Layout(
+            colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
+            template='plotly_dark',
+            paper_bgcolor='rgba(0, 0, 0, 0)',
+            plot_bgcolor='rgba(0, 0, 0, 0)',
+            margin={'b': 15},
+            hovermode='x',
+            autosize=True,
+        )
+    }
+
+    return figure
 
 
 

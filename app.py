@@ -7,6 +7,13 @@ import plotly.graph_objects as go
 import plotly.express as px
 from dash.dependencies import Input, Output
 import flask
+from flask import Flask, render_template
+
+server = flask.Flask(__name__)
+
+@server.route('/')
+def home():
+    return render_template('test.html')
 
 
 external_stylesheets = [
@@ -37,7 +44,7 @@ external_stylesheets = [
 
 
 # Initializing the App
-app = dash.Dash(__name__,  external_stylesheets=external_stylesheets, title='Python Data Visualization - Plotly & Dash Dashboard', suppress_callback_exceptions=True)
+app = dash.Dash(__name__,  external_stylesheets=external_stylesheets, title='Python Data Visualization - Plotly & Dash Dashboard', suppress_callback_exceptions=True,server=server)
 
 server = app.server
 

@@ -3,6 +3,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import pandas as pd
 import plotly.graph_objects as go
+import numpy as np
 
 from app import app
 
@@ -47,17 +48,10 @@ layout = html.Div(children=[
                           children=[
                               #Introduction to the Marketing Dashboard
                             #   html.Img(src='/assets/tj_logo.svg', style={'height': '45px', 'paddingBottom': '40px'}),
-                              html.H1('Key Performance Indicators'),               
-  
-                          ]
-                          ),
-                          
-                html.Div(className=' eight columns div-for-charts bg-grey',
-                          children=[
-                    
-                                dcc.Graph(id='sem_ads', config={'displayModeBar': False}), #Ad Covnversion Rate Graph
-                                html.Br(), 
-                                html.Div(className='div-for-dropdown',
+                              html.H1('Key Performance Indicators'),
+
+                              html.H2('Campaigns Conversion Rate', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2em'}),
+                              html.Div(className='div-for-dropdown',
                                        children=[
                                            dcc.Dropdown(id='sem_adconversion',
                                                         options=get_options(df_sem_nine['Conversion Rate'].unique()),
@@ -68,9 +62,8 @@ layout = html.Div(children=[
                                        ],
                                        style={'color': '#1E1E1E'}),   
 
-                                dcc.Graph(id='sem_ctr', config={'displayModeBar': False}), #Ad Click-Through Rate Graph
-                                html.Br(), 
-                                html.Div(className='div-for-dropdown',
+                              html.H2('Campaigns Click-Through Rate', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '17em'}),
+                              html.Div(className='div-for-dropdown',
                                        children=[
                                            dcc.Dropdown(id='sem_adctr',
                                                         options=get_options(df_sem_ten['CTR'].unique()),
@@ -79,11 +72,10 @@ layout = html.Div(children=[
                                                         style={'backgroundColor': '#1E1E1E'},
                                                         className='adctr')
                                        ],
-                                       style={'color': '#1E1E1E'}), 
+                                       style={'color': '#1E1E1E'}),
 
-                                dcc.Graph(id='sem_imp', config={'displayModeBar': False}), #Ad Impressions Graph
-                                html.Br(), 
-                                html.Div(className='div-for-dropdown',
+                              html.H2('Campaigns Impressions', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '18em'}),
+                              html.Div(className='div-for-dropdown',
                                        children=[
                                            dcc.Dropdown(id='sem_adimpression',
                                                         options=get_options(df_sem_el['Impressions'].unique()),
@@ -92,9 +84,26 @@ layout = html.Div(children=[
                                                         style={'backgroundColor': '#1E1E1E'},
                                                         className='adimpression')
                                        ],
-                                       style={'color': '#1E1E1E'}), 
+                                       style={'color': '#1E1E1E'}),               
+               
+  
+                          ]
+                          ),
+                          
+                html.Div(className=' eight columns div-for-charts bg-grey',
+                          children=[
+                    
+                                dcc.Graph(id='sem_ads', config={'displayModeBar': False}), #Ad Covnversion Rate Graph
+                                html.Br(), 
+                                
 
+                                dcc.Graph(id='sem_ctr', config={'displayModeBar': False}), #Ad Click-Through Rate Graph
+                                html.Br(), 
+ 
 
+                                dcc.Graph(id='sem_imp', config={'displayModeBar': False}), #Ad Impressions Graph
+                                html.Br(), 
+                                 
                           ])
              ])
 ])
@@ -114,7 +123,7 @@ def update_conversions(selected_dropdown_value):
     for stock in selected_dropdown_value:
         trace.append(go.Scatter(x=df_sub_sem_nine[df_sub_sem_nine['Conversion Rate'] == stock].index,
                                 y=df_sub_sem_nine[df_sub_sem_nine['Conversion Rate'] == stock]['value'],
-                                mode='lines',
+                                mode='markers',
                                 opacity=0.7,
                                 name=stock,
                                 textposition='bottom center'))
@@ -125,15 +134,15 @@ def update_conversions(selected_dropdown_value):
     # STEP 4
     figure = {'data': data,
               'layout': go.Layout(
-                  colorway=["#359EC3", '#D59353', '#B15AE6', '#6BBF5D', '#D45950'],
+                  colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                   template='plotly_dark',
                   paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
                   margin={'b': 15},
                   hovermode='x',
                   autosize=True,
-                  title={'text': 'Google Ad Campaigns Conversion Rate', 'font': {'color': 'white'}, 'x': 0.5},
-                  xaxis={'range': [df_sub_sem_nine.index.min(), df_sub_sem_nine.index.max()]},
+                  xaxis={'range': [df_sub_sem_nine.index.min(), df_sub_sem_nine.index.max()], 'showgrid':False},
+                  yaxis={'showgrid':False}
               ),
 
               }
@@ -154,7 +163,7 @@ def update_ctr(selected_dropdown_value):
     for stock in selected_dropdown_value:
         trace.append(go.Scatter(x=df_sub_sem_ten[df_sub_sem_ten['CTR'] == stock].index,
                                 y=df_sub_sem_ten[df_sub_sem_ten['CTR'] == stock]['value'],
-                                mode='lines',
+                                mode='markers',
                                 opacity=0.7,
                                 name=stock,
                                 textposition='bottom center'))
@@ -165,15 +174,15 @@ def update_ctr(selected_dropdown_value):
     # STEP 4
     figure = {'data': data,
               'layout': go.Layout(
-                  colorway=["#359EC3", '#D59353', '#B15AE6', '#6BBF5D', '#D45950'],
+                  colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                   template='plotly_dark',
                   paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
                   margin={'b': 15},
                   hovermode='x',
                   autosize=True,
-                  title={'text': 'Google Ad Campaigns Click-Through Rate', 'font': {'color': 'white'}, 'x': 0.5},
-                  xaxis={'range': [df_sub_sem_ten.index.min(), df_sub_sem_ten.index.max()]},
+                  xaxis={'range': [df_sub_sem_ten.index.min(), df_sub_sem_ten.index.max()], 'showgrid':False},
+                  yaxis={'showgrid':False}
               ),
 
               }
@@ -194,7 +203,7 @@ def update_ctr(selected_dropdown_value):
     for stock in selected_dropdown_value:
         trace.append(go.Scatter(x=df_sub_sem_el[df_sub_sem_el['Impressions'] == stock].index,
                                 y=df_sub_sem_el[df_sub_sem_el['Impressions'] == stock]['value'],
-                                mode='lines',
+                                mode='markers',
                                 opacity=0.7,
                                 name=stock,
                                 textposition='bottom center'))
@@ -205,15 +214,15 @@ def update_ctr(selected_dropdown_value):
     # STEP 4
     figure = {'data': data,
               'layout': go.Layout(
-                  colorway=["#359EC3", '#D59353', '#B15AE6', '#6BBF5D', '#D45950'],
+                  colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                   template='plotly_dark',
                   paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
                   margin={'b': 15},
                   hovermode='x',
                   autosize=True,
-                  title={'text': 'Google Ad Campaigns Impressions', 'font': {'color': 'white'}, 'x': 0.5},
-                  xaxis={'range': [df_sub_sem_el.index.min(), df_sub_sem_el.index.max()]},
+                  xaxis={'range': [df_sub_sem_el.index.min(), df_sub_sem_el.index.max()],'showgrid':False},
+                  yaxis={'showgrid':False}
               ),
 
               }
