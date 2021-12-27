@@ -13,7 +13,7 @@ server = flask.Flask(__name__)
 
 @server.route('/')
 def home():
-    return render_template('test.html')
+    return render_template('home.html')
 
 
 external_stylesheets = [

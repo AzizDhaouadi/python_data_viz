@@ -5,7 +5,7 @@ import dash
 import dash_auth
 import app
 from app import app
-from dashboards import google_analytics, google_ads, home
+from dashboards import google_analytics, google_ads, home, marketing
 
 
 app.layout = html.Div([
@@ -21,6 +21,8 @@ def display_page(pathname):
         return google_analytics.layout
     elif pathname == '/dashboard/google_ads':
         return google_ads.layout
+    elif pathname == '/dashboard/marketing_tools':
+        return marketing.layout
     elif pathname == '/':
         return app.home()
     else:

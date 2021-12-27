@@ -6,3 +6,9 @@
     right: 0;
     left: 0;
     z-index: 1030;}
+
+.btn-primary{
+    color: #fff;
+    background-color: #8C00CD !important;
+    border-color: #8C00CD !important;
+}

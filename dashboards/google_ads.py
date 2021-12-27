@@ -37,6 +37,9 @@ layout = html.Div(children=[
         html.Li(style={'display': 'inline-block', 'margin-left': '40px'}, children=[
             html.A('Google Analytics Reports', href='/dashboard/google_analytics', style={'color': '#FFF'}, target='_blank', className='menu-nav')
         ]),
+        html.Li(style={'display': 'inline-block', 'margin-left': '40px'}, children=[
+            html.A('Other Marketing Reports', href='/dashboard/marketing_tools', style={'color': '#FFF'}, target='_blank', className='menu-nav')
+        ]),
     ], style={'list-style-type': 'none'}),
 
 
@@ -46,10 +49,7 @@ layout = html.Div(children=[
              children=[
                 html.Div(className='four columns div-user-controls',
                           children=[
-                              #Introduction to the Marketing Dashboard
-                            #   html.Img(src='/assets/tj_logo.svg', style={'height': '45px', 'paddingBottom': '40px'}),
                               html.H1('Key Performance Indicators'),
-
                               html.H2('Campaigns Conversion Rate', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2em'}),
                               html.Div(className='div-for-dropdown',
                                        children=[

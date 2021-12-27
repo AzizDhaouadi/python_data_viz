@@ -12093,7 +12093,7 @@ input.text-white::placeholder {
 
 .device[data-device='iPhoneX'][data-orientation='portrait'][data-color='black'] {
   padding-bottom: 202.898072%;
-  background-image: url(../img/device-mockups/iPhoneX/portrait.png) !important;
+  background-image: url(../img/device-mockups/iPhoneX/portrait_black.png) !important;
   z-index: initial;
 }
 

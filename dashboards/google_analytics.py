@@ -49,6 +49,9 @@ layout = html.Div(children=[
         html.Li(style={'display': 'inline-block', 'margin-left': '40px'}, children=[
             html.A('Google Ads Reports', href='/dashboard/google_ads', style={'color': '#FFF'}, target='_blank', className='menu-nav')
         ]),
+        html.Li(style={'display': 'inline-block', 'margin-left': '40px'}, children=[
+            html.A('Other Marketing Reports', href='/dashboard/marketing_tools', style={'color': '#FFF'}, target='_blank', className='menu-nav')
+        ]),
     ], style={'list-style-type': 'none'}),
     ]),
     
@@ -124,23 +127,16 @@ layout = html.Div(children=[
                               dcc.Graph(id='exit_rate', config={'displayModeBar': False}), # Exit Rate Graph
                               html.Br(), 
 
-                             dcc.Graph(id='event_tracking', config={'displayModeBar': False}),
-                             html.Br(),  # Event Tracking Graph 
+                             dcc.Graph(id='event_tracking', config={'displayModeBar': False}),# Event Tracking Graph 
+                             html.Br(),
+
+                            #  dcc.Graph(id='event_spending', config={'displayModeBar': False}),# Event Tracking Graph 
+                            #  html.Br()
                               
                               ])
              ]),
             
-            # html.Div(className='row',
-            #  children=[
-                          
-            #     html.Div(className='eight columns div-for-charts bg-grey',id='fityvh',
-            #               children=[
-                              
-            #                   html.Br(),
-            #                 #   dcc.Graph(id='event_spend', config={'displayModeBar': False})
-        
-            #               ])
-            #  ]),
+
 
 
 ])
@@ -307,39 +303,36 @@ def update_eventstracking(selected_dropdown_value):
 
     return figure
 
-# Update Events Spend Breakdown
-@app.callback(Output('event_spend', 'figure'),
-                      [Input('evenselector', 'value')])
+
+# @app.callback(Output('event_spending', 'figure'),
+#                       [Input('evenselector', 'value')])
                       
-def update_eventspend(selected_dropdown_value):
-    ''' Draw traces of the feature 'value' based one the currently selected stocks '''
-    # STEP 1
+# def update_eventspending(selected_dropdown_value):
+#     ''' Draw traces of the feature 'value' based one the currently selected stocks '''
+#     # STEP 1
 
-    # STEP 2
-    # Draw and append traces for each stock
-    trace = go.Pie(labels = ['Event 1', 'Event 2', 'Event 3', 'Event 4', 'Event 5'], values=[23,17,35,29,12],
-    opacity=1,
-)
+#     # STEP 2
+#     # Draw and append traces for each stock
+#     trace = go.Pie(labels = ['Event 1', 'Event 2', 'Event 3', 'Event 4', 'Event 5'], values=[23,17,35,29,12],
+#     opacity=1,
+# )
                                 
-    # STEP 3
+#     # STEP 3
 
-    data = [trace]
-    # Define Figure
-    # STEP 4
-    figure = {
-        'data': data,
-        'layout': go.Layout(
-            colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
-            template='plotly_dark',
-            paper_bgcolor='rgba(0, 0, 0, 0)',
-            plot_bgcolor='rgba(0, 0, 0, 0)',
-            margin={'b': 15},
-            hovermode='x',
-            autosize=True,
-        )
-    }
+#     data = [trace]
+#     # Define Figure
+#     # STEP 4
+#     figure = {
+#         'data': data,
+#         'layout': go.Layout(
+#             colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
+#             template='plotly_dark',
+#             paper_bgcolor='rgba(0, 0, 0, 0)',
+#             plot_bgcolor='rgba(0, 0, 0, 0)',
+#             margin={'b': 15},
+#             hovermode='x',
+#             autosize=True,
+#         )
+#     }
 
-    return figure
-
-
-
+#     return figure
