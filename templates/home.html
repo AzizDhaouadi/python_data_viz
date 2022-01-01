@@ -6,7 +6,7 @@
     <title>Dash Plotly Visualization App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
+
     <!-- Swiper slider-->
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/swiper-bundle.min.css') }}">
     <!-- Modal Video-->
@@ -20,6 +20,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/custom.css') }}">
 
@@ -29,8 +31,26 @@
     <style>
       .btn-primary{
         color: #fff;
-        background-color: #8C00CD !important;
-        border-color: #8C00CD !important; 
+        background-color: #999997 !important;
+        border-color: #999997 !important; 
+      }
+      .nav-link{
+        color: #b8b8b8 !important;
+        font-weight: 600;
+        
+      }
+      a.nav-link {
+        text-decoration: underline;
+        text-decoration-color: #b8b8b8;
+      }
+      .nav-link:hover{
+        color: #d59353 !important;
+      }
+      .list-check li::before{
+        color: #b8b8b8 !important;
+      }
+      div.card-body h3{
+        color: orange;
       }
     </style>
 
@@ -43,16 +63,11 @@
         <div class="container"><a class="navbar-brand" href="/"><img src="{{url_for('static', filename='img/dash.png')}}" alt="" width="110"></a>
           <button class="navbar-toggler navbar-toggler-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link link-scroll active" href="/">Home <span class="sr-only">(current)</span></a></li>
+            <ul class="nav justify-content-end">
               <li class="nav-item"><a class="nav-link link-scroll" href="#about">About</a></li>
-              <li class="nav-item dropdown"><a class="nav-link link-scroll dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dashboards</a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/dashboard/google_analytics" target="_blank">Google Analytics</a></li>
-                  <li><a class="dropdown-item" href="/dashboard/google_ads" target="_blank">Google Ads</a></li>
-                  <li><a class="dropdown-item" href="/dashboard/marketing_tools" target="_blank">Other Dashboards</a></li>  
-                </ul>
-              </li>
+              <li class="nav-item"><a class="nav-link link-scroll" href="/dashboard/google_analytics" target="_blank">Google Analytics Dashboard</a></li>
+              <li class="nav-item"><a class="nav-link link-scroll" href="/dashboard/google_ads" target="_blank">Google Ads Dashboard</a></li>
+              <li class="nav-item"><a class="nav-link link-scroll" href="/dashboard/marketing_tools" target="_blank">Other Examples</a></li>
             </ul>
           </div>
         </div>
@@ -61,10 +76,69 @@
     <!-- Hero Section-->
     <section class="hero bg-top py-5" id="hero" style="background: url(img/banner-4.png) no-repeat; background-size: 100% 80%">
       <div class="container py-5">
-        <div class="row py-5">
-          <div class="col-lg-5 py-5">
-            <h1>Download your best app </h1>
-            <p class="my-4 text-muted">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.</p>
+        <div class="row py-8">
+          <div class="col-lg-6 py-5">
+            <h1>Build powerful visualization for your media-buying </h1>
+            <p class="my-4 text-muted">Dash is ideal for building and deploying data apps with customized user interfaces. It's suited for anyone who works with data, particularly for Marketing Analytics individuals.</p>
+            <p class="my-4 text-muted">Using this Dash application, you can visualize your marketing data to uncover insights for your media buying activities.</p>
+            <div class="row align-items-center gy-5">
+            <div class="col-lg-12">
+              <p class="text-muted">Dolor sit amet consectetur elit sed do eiusmod tempor incididunt labore dolore magna aliqua enim ad minim veniam quis nostrud exercitation.</p>
+              <ul class="list-check">
+                <li class="text-muted mb-2">Various Analysis Options</li>
+                <li class="text-muted mb-2">Page Load Details (time, size, number of requests)</li>
+                <li class="text-muted mb-2">Waterfall, Video and Report History</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row align-items-center gy-5" style="margin-top: 0.15rem;">
+            <div class="row gy-4">
+              <div class="col-lg-5 col-sm-5">
+                <div class="card border-0 shadow rounded-lg text-start px-2">
+                  <div class="card-body px py-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-pie-chart-fill" viewBox="0 0 16 16">
+                      <path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778l-5.5 5.5zM8.5.015V7.5h7.485A8.001 8.001 0 0 0 8.5.015z"/>
+                    </svg>
+                    <h3 class="h5 my-3">Pie Charts</h3>
+                    <p class="text-sm mb-0 text-muted">Lorem ipsum dolor amet consectetur adipisicing.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-sm-5">
+                <div class="card border-0 shadow rounded-lg text-start px-2">
+                  <div class="card-body px py-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-back" viewBox="0 0 16 16">
+                      <path d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z"/>
+                    </svg>
+                    <h3 class="h5 my-3">Interactive Charts</h3>
+                    <p class="text-sm mb-0 text-muted">Lorem ipsum dolor amet consectetur adipisicing.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-sm-5">
+                <div class="card border-0 shadow rounded-lg text-start px-2">
+                  <div class="card-body px py-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"/>
+                    </svg>
+                    <h3 class="h5 my-3">Time Series</h3>
+                    <p class="text-sm mb-0 text-muted">Lorem ipsum dolor amet consectetur adipisicing.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-sm-5">
+                <div class="card border-0 shadow rounded-lg text-start px-2">
+                  <div class="card-body px py-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16">
+                      <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z"/>
+                    </svg>
+                    <h3 class="h5 my-3">Bar Charts</h3>
+                    <p class="text-sm mb-0 text-muted">Lorem ipsum dolor amet consectetur adipisicing.</p>
+                  </div>
+                </div>
+              </div>
+  </div>
+          </div>
           </div>
           <div class="col-lg-6 ml-auto">
             <div class="device-wrapper mx-auto">
@@ -79,118 +153,42 @@
     <section class="bg-center py-0" id="about" style="background: url(img/service-bg.svg) no-repeat; background-size: cover">
       <section class="about py-0">
         <div class="container">
-          <p class="h6 text-uppercase text-primary">What is it all about?</p>
-          <h2 class="mb-5">Track your time and expenses</h2>
+          <p class="h6 text-uppercase text-primary" style="color: #999997 !important;">How does it work?</p>
+          <h2 class="mb-5">Visualize data & uncover insights</h2>
           <div class="row pb-5 gy-4">
             <div class="col-lg-4 col-md-6">
-              <!-- Services Item-->
               <div class="card border-0 shadow rounded-lg py-4 text-start">
                 <div class="card-body p-5">
-                  <svg class="svg-icon svg-icon-light" style="width:60px;height:60px;color:#ff904e">
-                    <use xlink:href="#document-saved-1"> </use>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                   </svg>
-                  <h3 class="h4 my-4">Online Marketing</h3>
+                  <h3 class="h4 my-4">Fork the Github Repository</h3>
                   <p class="text-sm text-muted mb-0">Lorem ipsum dolor amet consectetur adipisicing sed do eiusmod tempor incididunt ut labore.</p>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
-              <!-- Services Item-->
               <div class="card border-0 shadow rounded-lg py-4 text-start">
                 <div class="card-body p-5">
-                  <svg class="svg-icon svg-icon-light" style="width:60px;height:60px;color:#39f8d2">
-                    <use xlink:href="#map-marker-1"> </use>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bar-chart-steps" viewBox="0 0 16 16">
+                    <path d="M.5 0a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-1 0V.5A.5.5 0 0 1 .5 0zM2 1.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1z"/>
                   </svg>
-                  <h3 class="h4 my-4">Track your move </h3>
+                  <h3 class="h4 my-4">Customize the charts</h3>
                   <p class="text-sm text-muted mb-0">Lorem ipsum dolor amet consectetur adipisicing sed do eiusmod tempor incididunt ut labore.</p>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
-              <!-- Services Item-->
               <div class="card border-0 shadow rounded-lg py-4 text-start">
                 <div class="card-body p-5">
-                  <svg class="svg-icon svg-icon-light" style="width:60px;height:60px;color:#8190ff">
-                    <use xlink:href="#arrow-target-1"> </use>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
+                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+                    <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                   </svg>
-                  <h3 class="h4 my-4">Market analysis</h3>
+                  <h3 class="h4 my-4">Visualize your data</h3>
                   <p class="text-sm text-muted mb-0">Lorem ipsum dolor amet consectetur adipisicing sed do eiusmod tempor incididunt ut labore.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="with-pattern-1 py-5" id="services">
-        <div class="container py-5">
-          <div class="row align-items-center mb-5 gy-5">
-            <div class="col-lg-6"><img class="img-fluid w-100 px-lg-5" src="{{url_for('static', filename='img/objects.svg')}}" alt=""></div>
-            <div class="col-lg-6">
-              <h2>The Best Business Solutions Guide for You</h2>
-              <p class="text-muted">Dolor sit amet consectetur elit sed do eiusmod tempor incididunt labore dolore magna aliqua enim ad minim veniam quis nostrud exercitation.</p>
-              <!-- <button class="btn btn-primary js-modal-btn" data-video-id="B6uuIHpFkuo"><i class="fas fa-play-circle me-2"></i>Play video</button> -->
-            </div>
-          </div>
-          <div class="row align-items-center gy-5">
-            <div class="col-lg-6">
-              <h2>Make your own success as simple you clap</h2>
-              <p class="text-muted">Dolor sit amet consectetur elit sed do eiusmod tempor incididunt labore dolore magna aliqua enim ad minim veniam quis nostrud exercitation.</p>
-              <ul class="list-check">
-                <li class="text-muted mb-2">Various Analysis Options</li>
-                <li class="text-muted mb-2">Page Load Details (time, size, number of requests)</li>
-                <li class="text-muted mb-2">Waterfall, Video and Report History</li>
-              </ul>
-              <!-- <button class="btn btn-primary js-modal-btn" data-video-id="B6uuIHpFkuo"><i class="fas fa-play-circle me-2"></i>Play video</button> -->
-            </div>
-            <div class="col-lg-6">
-              <div class="row gy-4">
-                <div class="col-lg-6 col-sm-6">
-                  <!-- Services Item-->
-                  <div class="card border-0 shadow rounded-lg text-start px-2">
-                    <div class="card-body px py-5">
-                      <svg class="svg-icon" style="width:40px;height:40px;color:#ff904e">
-                        <use xlink:href="#document-saved-1"> </use>
-                      </svg>
-                      <h3 class="h5 my-3">Online Marketing</h3>
-                      <p class="text-sm mb-0 text-muted">Lorem ipsum dolor amet consectetur adipisicing.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                  <!-- Services Item-->
-                  <div class="card border-0 shadow rounded-lg text-start px-2">
-                    <div class="card-body px py-5">
-                      <svg class="svg-icon" style="width:40px;height:40px;color:#39f8d2">
-                        <use xlink:href="#map-marker-1"> </use>
-                      </svg>
-                      <h3 class="h5 my-3">Track your move </h3>
-                      <p class="text-sm mb-0 text-muted">Lorem ipsum dolor amet consectetur adipisicing.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                  <!-- Services Item-->
-                  <div class="card border-0 shadow rounded-lg text-start px-2">
-                    <div class="card-body px py-5">
-                      <svg class="svg-icon" style="width:40px;height:40px;color:#8190ff">
-                        <use xlink:href="#arrow-target-1"> </use>
-                      </svg>
-                      <h3 class="h5 my-3">Market analysis</h3>
-                      <p class="text-sm mb-0 text-muted">Lorem ipsum dolor amet consectetur adipisicing.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                  <!-- Services Item-->
-                  <div class="card border-0 shadow rounded-lg text-start px-2">
-                    <div class="card-body px py-5">
-                      <svg class="svg-icon" style="width:40px;height:40px;color:#ff634b">
-                        <use xlink:href="#sorting-1"> </use>
-                      </svg>
-                      <h3 class="h5 my-3">Full Settings</h3>
-                      <p class="text-sm mb-0 text-muted">Lorem ipsum dolor amet consectetur adipisicing.</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -204,26 +202,26 @@
       <div class="container py-5">
         <div class="row gy-4">
           <div class="col-lg-3"><img class="mb-4" src="{{url_for('static', filename='img/dash.png')}}" alt="" width="110">
-            <p class="text-muted">This is a dash plotly app. Easily visualize your data using python.</p>
+            <p class="text-muted">Dash is ideal for building and deploying data apps with customized user interfaces.</p>
           </div>
           <div class="col-lg-5">
-            <h2 class="h5 mb-4">Contact</h2>
+            <h2 class="h2 mb-4">CONTACT US</h2>
             <form method="POST" action="{{ url_for('home') }}">
               {{ form.hidden_tag() }}
               <div class="mb-3">
-                {{ form.email.label }}
+                {{ form.email.label(class_="form-label") }}
                 <br>
-                {{ form.email(size=30,placeholder="email@example.io") }}
+                {{ form.email(size=30,placeholder="email@example.io",class_="form-control") }}
                 <div id="email" class="form-text">Your email will never be shared with anyone.</div>
               </div>
               <div class="mb-3">
                 <div class="form">
-                  {{ form.message.label }}
+                  {{ form.message.label(class_="form-label") }}
                   <br>
-                  {{ form.message(rows=4,cols=50,placeholder="Please leave us your message and we will get back you!") }}
+                  {{ form.message(rows=4,cols=50,placeholder="Please leave us your message and we will get back you!",class_="form-control") }}
                 </div>
               </div>
-              {{ form.submit() }}
+              {{ form.submit(class_='btn btn-primary') }}
             </form>
           </div>
         </div>
