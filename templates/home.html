@@ -52,6 +52,23 @@
       div.card-body h3{
         color: orange;
       }
+      .hero-figure{
+        width: 100%;
+      }
+      img.how-section.icon-holder{
+        max-width: 200px;
+        height: auto;
+        position: relative;
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media only screen and (min-width: 1023px){
+        #datacard, #chartcard{
+          height: 100%;
+        }
+
+      }
     </style>
 
 
@@ -94,7 +111,7 @@
           <div class="row align-items-center gy-5" style="margin-top: 0.15rem;">
             <div class="row gy-4">
               <div class="col-lg-5 col-sm-5">
-                <div class="card border-0 shadow rounded-lg text-start px-2">
+                <div class="card border-0 shadow rounded-lg text-start px-2" id="chartcard">
                   <div class="card-body px py-5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-pie-chart-fill" viewBox="0 0 16 16">
                       <path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778l-5.5 5.5zM8.5.015V7.5h7.485A8.001 8.001 0 0 0 8.5.015z"/>
@@ -105,24 +122,24 @@
                 </div>
               </div>
               <div class="col-lg-5 col-sm-5">
-                <div class="card border-0 shadow rounded-lg text-start px-2">
+                <div class="card border-0 shadow rounded-lg text-start px-2" id="chartcard">
                   <div class="card-body px py-5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-back" viewBox="0 0 16 16">
                       <path d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z"/>
                     </svg>
                     <h3 class="h5 my-3">Interactive Charts</h3>
-                    <p class="text-sm mb-0 text-muted">Build interactive charts and zoom into your data without rebuilding your the reports.</p>
+                    <p class="text-sm mb-0 text-muted">Build interactive charts and zoom into sections of interest.</p>
                   </div>
                 </div>
               </div>
               <div class="col-lg-5 col-sm-5">
-                <div class="card border-0 shadow rounded-lg text-start px-2">
+                <div class="card border-0 shadow rounded-lg text-start px-2" id="chartcard">
                   <div class="card-body px py-5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"/>
                     </svg>
                     <h3 class="h5 my-3">Time Series</h3>
-                    <p class="text-sm mb-0 text-muted">Visualize data across timelines to understand its trend and seasonality. </p>
+                    <p class="text-sm mb-0 text-muted">Visualize data across timelines to for trends and seasonality. </p>
                   </div>
                 </div>
               </div>
@@ -141,11 +158,7 @@
           </div>
           </div>
           <div class="col-lg-6 ml-auto">
-            <div class="device-wrapper mx-auto">
-              <div class="device shadow" data-device="iPhoneX" data-orientation="portrait" data-color="black">
-                <div class="screen"><img class="img-fluid" src="{{url_for('static', filename='img/iphone_screen.png')}}" alt=""></div>
-              </div>
-            </div>
+            <img src="{{url_for('static', filename='img/hero_image.svg')}}" class="hero-figure mx-auto" alt="">
           </div>
         </div>
       </div>
@@ -157,38 +170,41 @@
           <h2 class="mb-5">Visualize data & uncover insights</h2>
           <div class="row pb-5 gy-4">
             <div class="col-lg-4 col-md-6">
-              <div class="card border-0 shadow rounded-lg py-4 text-start">
+              <div class="card border-0 shadow rounded-lg py-4 text-start" id="datacard">
                 <div class="card-body p-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                  <img src="https://themes.3rdwavemedia.com/coderpro/bs5/1.0/assets/images/streamline-free/monitor-loading-progress.svg" class="how-section icon-holder" alt="">
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                  </svg>
-                  <h3 class="h4 my-4">Fork the Github Repository</h3>
-                  <p class="text-sm text-muted mb-0">Lorem ipsum dolor amet consectetur adipisicing sed do eiusmod tempor incididunt ut labore.</p>
+                  </svg> -->
+                  <h3 class="h4 my-4">Fork Github Repository</h3>
+                  <p class="text-sm text-muted mb-0">For the Github reposiotry and clone the project.</p>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
-              <div class="card border-0 shadow rounded-lg py-4 text-start">
+              <div class="card border-0 shadow rounded-lg py-4 text-start" id="datacard">
                 <div class="card-body p-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bar-chart-steps" viewBox="0 0 16 16">
+                  <img src="https://themes.3rdwavemedia.com/coderpro/bs5/1.0/assets/images/streamline-free/monitor-window.svg" class="how-section icon-holder" alt="">
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bar-chart-steps" viewBox="0 0 16 16">
                     <path d="M.5 0a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-1 0V.5A.5.5 0 0 1 .5 0zM2 1.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1z"/>
-                  </svg>
-                  <h3 class="h4 my-4">Customize the charts</h3>
-                  <p class="text-sm text-muted mb-0">Lorem ipsum dolor amet consectetur adipisicing sed do eiusmod tempor incididunt ut labore.</p>
+                  </svg> -->
+                  <h3 class="h4 my-4">Customize Charts</h3>
+                  <p class="text-sm text-muted mb-0">Chnage the CSVs to your own and change/add new charts to the project.</p>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
-              <div class="card border-0 shadow rounded-lg py-4 text-start">
+              <div class="card border-0 shadow rounded-lg py-4 text-start" id="datacard">
                 <div class="card-body p-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
+                  <img src="https://themes.3rdwavemedia.com/coderpro/bs5/1.0/assets/images/streamline-free/monitor-cash-credit-card.svg" class="how-section icon-holder" alt="">
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                     <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
                     <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
                     <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                  </svg>
+                  </svg> -->
                   <h3 class="h4 my-4">Visualize your data</h3>
-                  <p class="text-sm text-muted mb-0">Lorem ipsum dolor amet consectetur adipisicing sed do eiusmod tempor incididunt ut labore.</p>
+                  <p class="text-sm text-muted mb-0">Run the application and bring your data to life.</p>
                 </div>
               </div>
             </div>
