@@ -114,18 +114,16 @@ layout = html.Div(children=[
                       [Input('sem_adconversion', 'value')])
                       
 def update_conversions(selected_dropdown_value):
-    ''' Draw traces of the feature 'value' based one the currently selected stocks '''
     # STEP 1
     trace = []
     df_sub_sem_nine = df_sem_nine
     # STEP 2
-    # Draw and append traces for each stock
-    for stock in selected_dropdown_value:
-        trace.append(go.Scatter(x=df_sub_sem_nine[df_sub_sem_nine['Conversion Rate'] == stock].index,
-                                y=df_sub_sem_nine[df_sub_sem_nine['Conversion Rate'] == stock]['value'],
+    for value in selected_dropdown_value:
+        trace.append(go.Scatter(x=df_sub_sem_nine[df_sub_sem_nine['Conversion Rate'] == value].index,
+                                y=df_sub_sem_nine[df_sub_sem_nine['Conversion Rate'] == value]['value'],
                                 mode='lines',
                                 opacity=0.7,
-                                name=stock,
+                                name=value,
                                 textposition='bottom center'))
     # STEP 3
     traces = [trace]
@@ -154,18 +152,16 @@ def update_conversions(selected_dropdown_value):
                       [Input('sem_adctr', 'value')])
                       
 def update_ctr(selected_dropdown_value):
-    ''' Draw traces of the feature 'value' based one the currently selected stocks '''
     # STEP 1
     trace = []
     df_sub_sem_ten = df_sem_ten
     # STEP 2
-    # Draw and append traces for each stock
-    for stock in selected_dropdown_value:
-        trace.append(go.Scatter(x=df_sub_sem_ten[df_sub_sem_ten['CTR'] == stock].index,
-                                y=df_sub_sem_ten[df_sub_sem_ten['CTR'] == stock]['value'],
+    for value in selected_dropdown_value:
+        trace.append(go.Scatter(x=df_sub_sem_ten[df_sub_sem_ten['CTR'] == value].index,
+                                y=df_sub_sem_ten[df_sub_sem_ten['CTR'] == value]['value'],
                                 mode='markers',
                                 opacity=0.7,
-                                name=stock,
+                                name=value,
                                 textposition='bottom center'))
     # STEP 3
     traces = [trace]
@@ -194,18 +190,16 @@ def update_ctr(selected_dropdown_value):
                       [Input('sem_adimpression', 'value')])
                       
 def update_ctr(selected_dropdown_value):
-    ''' Draw traces of the feature 'value' based one the currently selected stocks '''
     # STEP 1
     trace = []
     df_sub_sem_el = df_sem_el
     # STEP 2
-    # Draw and append traces for each stock
-    for stock in selected_dropdown_value:
-        trace.append(go.Scatter(x=df_sub_sem_el[df_sub_sem_el['Impressions'] == stock].index,
-                                y=df_sub_sem_el[df_sub_sem_el['Impressions'] == stock]['value'],
+    for value in selected_dropdown_value:
+        trace.append(go.Scatter(x=df_sub_sem_el[df_sub_sem_el['Impressions'] == value].index,
+                                y=df_sub_sem_el[df_sub_sem_el['Impressions'] == value]['value'],
                                 mode='lines',
                                 opacity=0.7,
-                                name=stock,
+                                name=value,
                                 textposition='bottom center'))
     # STEP 3
     traces = [trace]

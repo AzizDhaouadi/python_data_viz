@@ -65,12 +65,12 @@ layout = html.Div(children=[
                               html.H2('Pageviews', style={'color': '#bc5090', 'fontFamily': 'Playfair Display, serif', 'fontWeight': 'bolder', 'margin-top': '2em'}),  
                               html.Div(className='div-for-dropdown',
                                        children=[
-                                           dcc.Dropdown(id='stockselector',
+                                           dcc.Dropdown(id='pageview',
                                                         options=get_options(df['Page'].unique()),
                                                         multi=True,
                                                         value=[df['Page'].sort_values()[0]],
                                                         style={'backgroundColor': 'inherit'},
-                                                        className='stockselector')
+                                                        className='pageview')
                                        ],
                                        style={'color': '#1E1E1E'}),
 
@@ -143,21 +143,19 @@ layout = html.Div(children=[
 
 # Update Pageviews
 @app.callback(Output('timeseries', 'figure'),
-                      [Input('stockselector', 'value')])
+                      [Input('pageview', 'value')])
                       
 def update_pageviews(selected_dropdown_value):
-    ''' Draw traces of the feature 'value' based one the currently selected stocks '''
     # STEP 1
     trace = []
     df_sub = df
     # STEP 2
-    # Draw and append traces for each stock
-    for stock in selected_dropdown_value:
-        trace.append(go.Scatter(x=df_sub[df_sub['Page'] == stock].index,
-                                y=df_sub[df_sub['Page'] == stock]['value'],
+    for value in selected_dropdown_value:
+        trace.append(go.Scatter(x=df_sub[df_sub['Page'] == value].index,
+                                y=df_sub[df_sub['Page'] == value]['value'],
                                 mode='lines',
                                 opacity=1,
-                                name=stock,
+                                name=value,
                                 textposition='bottom center'))
     # STEP 3
     traces = [trace]
@@ -186,18 +184,16 @@ def update_pageviews(selected_dropdown_value):
                       [Input('bounceselector', 'value')])
                       
 def update_bouncerate(selected_dropdown_value):
-    ''' Draw traces of the feature 'value' based one the currently selected stocks '''
     # STEP 1
     trace = []
     df_sub_two = df_two
     # STEP 2
-    # Draw and append traces for each stock
-    for stock in selected_dropdown_value:
-        trace.append(go.Scatter(x=df_sub_two[df_sub_two['Bounce'] == stock].index,
-                                y=df_sub_two[df_sub_two['Bounce'] == stock]['value'],
+    for value in selected_dropdown_value:
+        trace.append(go.Scatter(x=df_sub_two[df_sub_two['Bounce'] == value].index,
+                                y=df_sub_two[df_sub_two['Bounce'] == value]['value'],
                                 mode='lines',
                                 opacity=1,
-                                name=stock,
+                                name=value,
                                 textposition='bottom center'))
     # STEP 3
     traces = [trace]
@@ -227,18 +223,16 @@ def update_bouncerate(selected_dropdown_value):
                       [Input('exitselector', 'value')])
                       
 def update_exitrate(selected_dropdown_value):
-    ''' Draw traces of the feature 'value' based one the currently selected stocks '''
     # STEP 1
     trace = []
     df_sub_three = df_three
     # STEP 2
-    # Draw and append traces for each stock
-    for stock in selected_dropdown_value:
-        trace.append(go.Scatter(x=df_sub_three[df_sub_three['Exit'] == stock].index,
-                                y=df_sub_three[df_sub_three['Exit'] == stock]['value'],
+    for value in selected_dropdown_value:
+        trace.append(go.Scatter(x=df_sub_three[df_sub_three['Exit'] == value].index,
+                                y=df_sub_three[df_sub_three['Exit'] == value]['value'],
                                 mode='lines',
                                 opacity=1,
-                                name=stock,
+                                name=value,
                                 textposition='bottom center'))
     # STEP 3
     traces = [trace]
@@ -268,18 +262,16 @@ def update_exitrate(selected_dropdown_value):
                       [Input('evenselector', 'value')])
                       
 def update_eventstracking(selected_dropdown_value):
-    ''' Draw traces of the feature 'value' based one the currently selected stocks '''
     # STEP 1
     trace = []
     df_sub_four = df_four
     # STEP 2
-    # Draw and append traces for each stock
-    for stock in selected_dropdown_value:
-        trace.append(go.Scatter(x=df_sub_four[df_sub_four['Event'] == stock].index,
-                                y=df_sub_four[df_sub_four['Event'] == stock]['value'],
+    for value in selected_dropdown_value:
+        trace.append(go.Scatter(x=df_sub_four[df_sub_four['Event'] == value].index,
+                                y=df_sub_four[df_sub_four['Event'] == value]['value'],
                                 mode='markers',
                                 opacity=1,
-                                name=stock,
+                                name=value,
                                 textposition='bottom center'))
     # STEP 3
     traces = [trace]
@@ -302,37 +294,3 @@ def update_eventstracking(selected_dropdown_value):
               }
 
     return figure
-
-
-# @app.callback(Output('event_spending', 'figure'),
-#                       [Input('evenselector', 'value')])
-                      
-# def update_eventspending(selected_dropdown_value):
-#     ''' Draw traces of the feature 'value' based one the currently selected stocks '''
-#     # STEP 1
-
-#     # STEP 2
-#     # Draw and append traces for each stock
-#     trace = go.Pie(labels = ['Event 1', 'Event 2', 'Event 3', 'Event 4', 'Event 5'], values=[23,17,35,29,12],
-#     opacity=1,
-# )
-                                
-#     # STEP 3
-
-#     data = [trace]
-#     # Define Figure
-#     # STEP 4
-#     figure = {
-#         'data': data,
-#         'layout': go.Layout(
-#             colorway=['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
-#             template='plotly_dark',
-#             paper_bgcolor='rgba(0, 0, 0, 0)',
-#             plot_bgcolor='rgba(0, 0, 0, 0)',
-#             margin={'b': 15},
-#             hovermode='x',
-#             autosize=True,
-#         )
-#     }
-
-#     return figure

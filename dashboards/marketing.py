@@ -59,9 +59,6 @@ layout = html.Div(children=[
 @app.callback(Output('event_spend', 'figure'),[Input('event_spend', 'value')])                
 def update_eventspend(selected_dropdown_value):
     trace = go.Pie(labels = ['Ad Group 1', 'Ad Group 2', 'Ad Group 3', 'Ad Group 4', 'Ad Group 5'], values=[23,17,35,29,12])
-                                
-    # STEP 3
-
     data = [trace]
     # Define Figure
     # STEP 4
