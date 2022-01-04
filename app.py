@@ -63,6 +63,10 @@ def home():
 
     return render_template('home.html',form=form)
 
+@server.route('/docs')
+def docs():
+    return render_template('docs.html')
+
 
 external_stylesheets = [
     'https://fonts.googleapis.com/css2?family=Tangerine&display=swap',
