@@ -63,9 +63,23 @@ def home():
 
     return render_template('home.html',form=form)
 
-@server.route('/docs')
+@server.route('/docs', methods=['GET', 'POST'])
 def docs():
-    return render_template('docs.html')
+    form = contactForm()
+    if form.validate_on_submit():
+        print(f"E-mail:{form.email.data}, message:{form.message.data}")
+        request = Requests(email=form.email.data, message=form.message.data)
+        try:
+            db.session.add(request)
+            db.session.commit()
+            form.email.data = ''
+            form.message.data = ''
+            return redirect(url_for('home'))
+        except:
+            for error in form.errors.itervalues():
+                flash(error[0])
+            return "There was an error. Please try again later."
+    return render_template('docs.html', form=form)
 
 
 external_stylesheets = [
